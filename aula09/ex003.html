@@ -3,32 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title>
+    <title>Introdução ao DOM</title>
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h2>Iniciando com o <strong>DOM</strong>.</h2>
+    <h1 id="principal">Iniciando com o <strong>DOM</strong>.</h1>
+    <h2>O que é o DOM?</h2>
     <p><strong>DOM</strong>(Document Object Model) é uma representação
-    de tudo que existe dentro de uma página HTML.</p>
+    de tudo que existe dentro de uma página <em class="html">HTML</em>.</p>
     <p>O DOM é representado em forma de árvore e é ele quem permite 
-    que o JavaScript leia, modifique, crie e remova elementos do HTML,
+    que o JavaScript leia, modifique, crie e remova elementos do <em class="html">HTML</em>,
     além de permitir que ele altere estilos, responda a eventos e cliques.</p>
     <h2>Como o DOM funciona?</h2>
-    <p>O DOM é criado pelo navegador e sem ele o JavaScript não teria
-    como mexer na página web. O Navegador transforma o HTML em objetos
-    e quando uma página é atualizada o HTML dela não foi diretamente
+    <p id="paragrafo">O DOM é criado pelo navegador e sem ele o JavaScript não teria
+    como mexer na página web. O Navegador transforma o <em class="html">HTML</em> em objetos
+    e quando uma página é atualizada o <em class="html">HTML</em> dela não foi diretamente
     modificado, e sim, os objetos do DOM que foram atualizados.</p>
     <h2>Por que utilizar o DOM?</h2>
-    <p>Quando utilizamos o navegador, o servidor envia um arquivo HTML
+    <p>Quando utilizamos o navegador, o servidor envia um arquivo <e class="html"m>HTML</em>
     junto com o código em JavaScript, Então o navegador converte os
-    elementos HTML em objetos e cria a árvore DOM para quando a página 
-    for atualizada o HTML continua o mesmo, o que é atualizado são os 
+    elementos <em class="html">HTML</em> em objetos e cria a árvore DOM para quando a página 
+    for atualizada o <em class="html">HTML</em> continua o mesmo, o que é atualizado são os 
     objetos do DOM.</p>
-    <p>O navegador não tem permissão para modificar os arquivos HTML do site,
+    <p>O navegador não tem permissão para modificar os arquivos <em class="html">HTML</em> do site,
     por isso ele precisa criar uma representção dos arquivos (DOM) para pode
     atualizar a página.</p>
 
     <script>
-        window.alert('Olá');
+        //Selecionando elementos do DOM
+        
+        //por tag
+        var h2 = window.document.getElementsByTagName('h2')[0]
+        h2.style.background = 'green'
+
+        //por id
+        var p = window.document.getElementById('paragrafo')
+        p.style.textAlign = 'justify'
+
+        //por nome
+        //Este método pega o atributo 'name' do HTML
+
+        //por classe
+        var html = window.document.getElementsByClassName('html')[0]
+        html.style.background = 'blue'
+
+        //por query (pegando apenas o primeiro elemento)
+        var a = window.document.querySelector('#principal')
+        a.style.color = 'green'
+
+        //por query (pegando todos os elementos)
+        var b = window.document.querySelectorAll('.html')[1]
+        b.style.background = 'red'
+
     </script>
 </body>
 </html>
