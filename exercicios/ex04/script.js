@@ -21,7 +21,7 @@ function inList(vetor, input){
 
 function media(vetor){
     let soma = 0;
-    for(let valor in vetor){
+    for(let valor of vetor){
         soma += valor;
     }
 
@@ -42,5 +42,20 @@ function adicionar(){
 }
 
 function finalizar(){
+    if(vetor.length == 0){
+        window.alert('Insira um número antes de finalizar!');
+    }else{
+        res.innerHTML = '';
     
+        res.innerHTML += `<p>Ao todo, temos ${vetor.length} números cadastrados.</p>`;
+        
+        vetor.sort((a, b) => a-b);
+
+        let menor = vetor[0];
+        let posicao = vetor.length;
+        let maior = vetor[posicao - 1];
+        res.innerHTML += `<p>O menor valor inserido foi ${menor}.</p>`;
+        res.innerHTML += `<p>O maior valor inserido foi ${maior}.</p>`
+        res.innerHTML += `<p>A média dos valores inseridos é ${media(vetor)}.</p>`
+    }
 }
