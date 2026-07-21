@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            margin-top: 50px;
+            color: white;
+            background-color: orange;
+        }
+        #titulo{
+            font-size: 70px;
+        }
+        section{
+            width: 700px;
+            height: 400px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        section div{
+            font-size: 35px;
+            color: black;
+            margin-top: 20px;
+        }
+        section img{
+            border: solid 2px black;
+            border-radius: 100%;
+            height: 300px;
+            width: 300px;
+            margin-top: 10px;
+        }
+        footer{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body onload="horario()">
+    <header>
+        <h1 id="titulo">Bom dia!</h1>
+    </header>
+    <section>
+        <div id="horario">São 5 horas da manhã</div>
+        <div>
+            <img id="img" src="images/nascer-do-sol.png" alt="morning">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Curso em Vídeo</p>
+    </footer>
+
+    <script>
+        function horario(){
+            let data = new Date();
+            var hora = data.getHours();
+            let img = window.document.getElementById('img');
+            let horario = window.document.getElementById('horario');
+            let msg = window.document.getElementById('titulo');
+
+            horario.innerText = `São ${hora} horas!`
+
+            if(hora > 0 && hora <= 12){
+                img.src = './images/por-do-sol.png'
+                document.body.style.background = 'rgb(250, 213, 93)'
+            }else if(hora > 12 && hora < 18){
+                titulo.innerHTML = `Boa tarde!`
+                img.src = './images/nascer-do-sol.png'
+                document.body.style.background = 'orange'
+            }else{
+                titulo.innerHTML = `Boa noite!`
+                img.src = './images/night-life.png'
+                document.body.style.background = 'darkblue'
+            }
+        }
+    </script>
+</body>
+</html>
