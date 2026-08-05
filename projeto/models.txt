@@ -2,9 +2,8 @@ ESTRUTURA DOS OBJETOS
 
 Chat = {
     id: 1,
-    customer: customer,
+    user: user,
     messages: [],
-    qtdMessages: 200,
     status: 'PENDENTE'
 }
 
@@ -15,8 +14,8 @@ Messages = {
     time: '10:30' ou objeto Date 
 }
 
-Customer = {
+user = {
     id: 1,
     name: 'xuxu',
-    type: 'customer'
+    type: 'CUSTOMER/ADMIN'
 }
