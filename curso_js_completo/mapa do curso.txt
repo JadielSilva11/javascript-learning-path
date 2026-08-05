@@ -1,0 +1,209 @@
+MÓDULO 1 — FUNDAMENTOS DO JAVASCRIPT
+[ ] Aula 1 - O que é JavaScript
+[ ] Aula 2 - Variáveis
+[ ] Aula 3 - Tipos Primitivos
+[ ] Aula 4 - Operadores
+[ ] Aula 5 - Condicionais
+[ ] Aula 6 - Loops
+[ ] Aula 7 - Funções
+[ ] Aula 8 - Escopo
+[ ] Aula 9 - Hoisting
+[ ] Aula 10 - Closures
+[ ] Aula 11 - Debugging Básico
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 2 — ARRAYS E OBJETOS
+[ ] Aula 1 - Introdução a Arrays
+[ ] Aula 2 - Métodos Básicos
+[ ] Aula 3 - Iteração em Arrays
+[ ] Aula 4 - Manipulação de Objetos
+[ ] Aula 5 - Arrays de Objetos
+[ ] Aula 6 - sort()
+[ ] Aula 7 - includes()
+[ ] Aula 8 - Object.keys()
+[ ] Aula 9 - Object.values()
+[ ] Aula 10 - Object.entries()
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 3 — DOM
+[ ] Aula 1 - O que é DOM
+[ ] Aula 2 - Seleção de Elementos
+[ ] Aula 3 - Manipulação de Conteúdo
+[ ] Aula 4 - Manipulação de Classes
+[ ] Aula 5 - Eventos
+[ ] Aula 6 - Formulários
+[ ] Aula 7 - Dataset
+[ ] Aula 8 - Event Delegation
+[ ] Aula 9 - Formulários Avançados
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 4 — ES6+
+[ ] Aula 1 - let e const (Revisão Profissional)
+[ ] Aula 2 - Template Strings
+[ ] Aula 3 - Arrow Functions
+[ ] Aula 4 - Destructuring
+[ ] Aula 5 - Spread Operator
+[ ] Aula 6 - Rest Operator
+[ ] Aula 7 - Default Parameters
+[ ] Aula 8 - Módulos JavaScript
+[ ] Aula 9 - Named Exports
+[ ] Aula 10 - Default Exports
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 5 — ASSINCRONISMO
+[ ] Aula 1 - Callbacks
+[ ] Aula 2 - Promises
+[ ] Aula 3 - Async/Await
+[ ] Aula 4 - Tratamento de Erros
+[ ] Aula 5 - Promise.all()
+[ ] Aula 6 - Promise.race()
+[ ] Aula 7 - Event Loop
+[ ] Aula 8 - Microtasks vs Macrotasks
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 6 — APIS REST
+[ ] Aula 1 - O que é uma API
+[ ] Aula 2 - HTTP
+[ ] Aula 3 - GET
+[ ] Aula 4 - POST
+[ ] Aula 5 - PUT
+[ ] Aula 6 - PATCH
+[ ] Aula 7 - DELETE
+[ ] Aula 8 - Status HTTP
+[ ] Aula 9 - Tratamento de Erros
+[ ] Aula 10 - Paginação
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 7 — ARMAZENAMENTO LOCAL
+[ ] Aula 1 - Local Storage
+[ ] Aula 2 - Session Storage
+[ ] Aula 3 - JSON
+[ ] Aula 4 - Persistência
+[ ] Aula 5 - Cache Local
+[ ] Aula 6 - Estratégias de Persistência
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 8 — ECOSSISTEMA FRONT-END
+[ ] Aula 1 - Node.js
+[ ] Aula 2 - NPM
+[ ] Aula 3 - Git
+[ ] Aula 4 - GitHub
+[ ] Aula 5 - Branches
+[ ] Aula 6 - Commits Semânticos
+[ ] Aula 7 - Pull Requests
+[ ] Aula 8 - Code Review
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 9 — ARQUITETURA FRONT-END
+[ ] Aula 1 - Modularização
+[ ] Aula 2 - Separação de Responsabilidades
+[ ] Aula 3 - Estrutura de Pastas
+[ ] Aula 4 - Services
+[ ] Aula 5 - Utils
+[ ] Aula 6 - Configurações
+[ ] Aula 7 - Componentização Inicial
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 10 — REACT FUNDAMENTOS
+[ ] Aula 1 - O que é React
+[ ] Aula 2 - JSX
+[ ] Aula 3 - Componentes
+[ ] Aula 4 - Props
+[ ] Aula 5 - Estado (useState)
+[ ] Aula 6 - Ciclo de Renderização
+[ ] Aula 7 - Eventos
+[ ] Aula 8 - Listas
+[ ] Aula 9 - Condicional no JSX
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 11 — REACT INTERMEDIÁRIO
+[ ] Aula 1 - useEffect
+[ ] Aula 2 - Dependências
+[ ] Aula 3 - Formulários Controlados
+[ ] Aula 4 - Custom Hooks
+[ ] Aula 5 - Context API
+[ ] Aula 6 - useReducer
+[ ] Aula 7 - Performance Básica
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 12 — AUTENTICAÇÃO
+[ ] Aula 1 - JWT
+[ ] Aula 2 - Login
+[ ] Aula 3 - Logout
+[ ] Aula 4 - Rotas Protegidas
+[ ] Aula 5 - Refresh Token
+[ ] Aula 6 - Controle de Permissões
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 13 — OTIMIZAÇÃO
+[ ] Aula 1 - Memoização
+[ ] Aula 2 - useMemo
+[ ] Aula 3 - useCallback
+[ ] Aula 4 - Lazy Loading
+[ ] Aula 5 - Code Splitting
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
+
+MÓDULO 14 — TEMPO REAL
+[ ] Aula 1 - WebSockets
+[ ] Aula 2 - STOMP
+[ ] Aula 3 - Integração React + WebSocket
+[ ] Aula 4 - Atualizações em Tempo Real
+[ ] Aula 5 - Reconexão
+[ ] Aula 6 - Tratamento de Falhas
+
+[ ] Revisão Geral
+[ ] Quiz
+[ ] Projeto do Módulo
+[ ] Code Review
