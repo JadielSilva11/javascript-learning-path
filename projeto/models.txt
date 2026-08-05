@@ -1,0 +1,22 @@
+ESTRUTURA DOS OBJETOS
+
+Chat = {
+    id: 1,
+    customer: customer,
+    messages: [],
+    qtdMessages: 200,
+    status: 'PENDENTE'
+}
+
+Messages = {
+    id: 1,
+    sender: 'customer/attendant',
+    content: "Olá",
+    time: '10:30' ou objeto Date 
+}
+
+Customer = {
+    id: 1,
+    name: 'xuxu',
+    type: 'customer'
+}
