@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6: Formulários</title>
+</head>
+<body>
+    <form id="form">
+        <input id="nome" type="text" placeholder="Digite seu nome">
+
+        <button type="submit">
+            Enviar
+        </button>
+    </form>
+
+    <script>
+        const form = document.getElementById('form');
+        const nome = document.getElementById('nome');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if(nome.value.trim() === ""){
+                alert('É necessário informar um valor!');
+                return;
+            }
+
+            console.log(nome.value);
+            nome.value = "";
+        }); 
+    </script>
+</body>
+</html>
