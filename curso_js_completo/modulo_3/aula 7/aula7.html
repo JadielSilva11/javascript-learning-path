@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7: Dataset</title>
+</head>
+<body>
+    <button id="btn" data-id="10">
+        abrir chat
+    </button>
+
+    <div id="chat" data-chat-id="7" data-status="OPEN">
+        Pedro
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', () => {
+            console.log(btn.dataset.id);
+        })
+
+        const chat = document.getElementById('chat');
+
+        chat.addEventListener('click', () => {
+            console.log(chat.dataset.chatId, chat.dataset.status);
+        })
+
+    </script>
+</body>
+</html>
