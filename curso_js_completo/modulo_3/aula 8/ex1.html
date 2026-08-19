@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8: Event Delegation</title>
+</head>
+<body>
+    <div id="lista">
+        <div class="chat">
+            Pedro
+        </div>
+        <div class="chat">
+            Ana
+        </div>
+    </div>
+
+    <script>
+        const lista = document.getElementById('lista');
+        lista.addEventListener('click', (event) => {
+            if(event.target.classList.contains('chat')){
+                console.log(event.target.innerText);
+            }
+        })
+    </script>
+</body>
+</html>

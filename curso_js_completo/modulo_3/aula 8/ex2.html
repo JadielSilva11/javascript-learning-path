@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8: Event Delegation</title>
+</head>
+<body>
+    <div id="usuarios">
+        <button class="user" data-id="1">
+            Pedro
+        </button>
+
+        <button class="user" data-id="2">
+            Ana
+        </button>
+    </div>
+
+    <script>
+        const userList = document.getElementById('usuarios');
+        userList.addEventListener('click', (event) => {
+            if(event.target.classList.contains('user')){
+                console.log(event.target.dataset.id);
+            }
+        })
+    </script>
+</body>
+</html>
