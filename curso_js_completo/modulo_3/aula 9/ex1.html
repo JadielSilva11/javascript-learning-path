@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: Formulários Avançados</title>
+</head>
+<body>
+    <form id="form">
+        <div>
+            <input id="name" type="text" placeholder="Digite seu nome">
+        </div>
+
+        <div>
+            <input id="email" type="text" placeholder="Insira seu E-mail">
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>Qual o seu tipo de usuário?</legend>
+
+                <label>
+                    <input type="radio" name="type" value="customer">
+                    Customer
+                </label>
+
+                <label>
+                    <input type="radio" name="type" value="admin">
+                    Administrador
+                </label>
+            </fieldset>
+        </div>
+
+        <div>
+            <label>
+                <input id="terms" type="checkbox">
+                Aceito os termos
+            </label>
+        </div>
+
+        <button type="submit">
+            Enviar
+        </button>
+    </form>
+
+    <div id="user">
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const type = document.querySelector('input[name="type"]:checked');
+            const typeFieldset = document.querySelector('fieldset');
+            const terms = document.getElementById('terms');
+
+            if(!name.value.trim()){
+                alert('O nome não pode estar vazio.');
+                name.classList.add('erro');
+                return;
+            } else if(name.value.trim().length < 3){
+                alert('O nome precisa ter no mínimo 3 caracteres.');
+                name.classList.add('erro');
+                return;
+            }
+
+            if(!email.value.trim()){
+                alert('Email não pode estar vazio.');
+                email.classList.add('erro');
+                return;
+            }
+
+            if(!type){
+                alert('Selecione o tipo do usuário.');
+                typeFieldset.classList.add('erro');
+                return;
+            }
+
+            if(!terms.checked){
+                alert('Aceite os termos antes de prosseguir.');
+                terms.classList.add('erro');
+                return;
+            }
+
+            name.classList.remove('erro');
+            email.classList.remove('erro');
+            typeFieldset.classList.remove('erro');
+            terms.classList.remove('erro');
+
+            const user = document.getElementById('user');
+
+            const userName = document.createElement('p');
+            userName.innerText = 'Nome: ' + name.value;
+
+            const userEmail = document.createElement('p');
+            userEmail.innerText = 'Email: ' + email.value;
+
+            const userType = document.createElement('p');
+            userType.innerText = 'Tipo: ' + type.value;
+
+            user.appendChild(userName);
+            user.appendChild(userEmail);
+            user.appendChild(userType);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
