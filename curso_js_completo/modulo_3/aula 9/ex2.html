@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: Formulários Avançados</title>
+    <style>
+        .chamado{
+            background-color: yellow;
+            margin: 5px;
+            border: 1px black solid;
+            width: 300px;
+            padding: 5px;
+        }
+        .concluido{
+            background-color: rgb(21, 200, 21);
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <p>Novo chamado</p>
+        <div>
+            Cliente:
+            <input id="name" type="text">
+        </div>
+        <div>
+            Tipo:
+            <select id="type">
+                <option value="duvida">Dúvida</option>
+                <option value="problema">Problema</option>
+                <option value="financeiro">Financeiro</option>
+            </select>
+        </div>
+
+        <div>
+            Mensagem:
+            <input id="msg" type="text">
+        </div>
+
+        <button type="submit">Criar chamado</button>
+    </form>
+
+    <div id="chamados">
+        <p>Chamados:</p>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        const chamados = document.getElementById('chamados');
+        let contId = 0;
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name');
+            const type = document.getElementById('type');
+            const message = document.getElementById('msg');
+
+            if(!name.value.trim()){
+                alert('O nome não pode estar vazio.');
+                return;
+            }
+
+            if(!type.value.trim()){
+                alert('Selecione um tipo para o seu problema.');
+                return;
+            }
+
+            if(!message.value.trim()){
+                alert('Descreva seu problema no campo "Mensagem".');
+                return;
+            }
+
+            const user = document.createElement('div');
+            user.classList.add('chamado');
+
+            const userName = document.createElement('p');
+            userName.innerText = name.value;
+            const problemType = document.createElement('p');
+            problemType.innerText = type.value;
+            const userMsg = document.createElement('p');
+            userMsg.innerText = message.value;
+            const concluir = document.createElement('button');
+            concluir.classList.add('concluir');
+            concluir.innerText = 'Concluir';
+            const excluir = document.createElement('button');
+            excluir.classList.add('excluir');
+            excluir.innerText = 'Excluir';
+
+            user.appendChild(userName);
+            user.appendChild(problemType);
+            user.appendChild(userMsg);
+            user.appendChild(concluir);
+            user.appendChild(excluir);
+
+            contId++;
+            user.dataset.id = contId;
+
+            chamados.appendChild(user);
+
+            form.reset();
+        });
+
+        chamados.addEventListener('click', (event) => {
+            const chamado = event.target.closest('.chamado');
+
+            if(event.target.classList.contains('concluir')){
+                chamado.classList.add('concluido');
+                return;
+            }
+
+            else if(event.target.classList.contains('excluir')){
+                chamado.remove();
+            }
+        })
+    </script>
+</body>
+</html>
