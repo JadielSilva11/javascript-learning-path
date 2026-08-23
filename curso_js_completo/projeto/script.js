@@ -1,8 +1,35 @@
 const chats = [];
+const users = [];
+let userId = 0;
+let chatsId = 0;
 
-function createChat(id, user){
+function createUser(name){
+    userId++;
+
+    const user = {
+        id: userId,
+        name: name,
+        type: 'CUSTOMER'
+    };
+
+    users.push(user);
+    return user;
+}
+
+function findUserById(id){
+    for(const user of users){
+        if(user.id === id){
+            return user;
+        }
+    }
+}
+
+function createChat(userId){
+    const user = findUserById(userId);
+    chatsId++;
+
     const newChat = {
-        id: id,
+        id: chatsId,
         user: user,
         messages: [],
         status: 'OPEN'
@@ -49,6 +76,48 @@ function endChat(chatId){
 
 }
 
+function renderChats(){
+    const chatList = document.getElementById('chat-list');
+    chatList.innerText = '';
+
+    for(const chat of chats){
+        const renderChat = document.createElement('div');
+        renderChat.classList.add('chat');
+        renderChat.dataset.id = chat.id;
+
+        const renderUserName = document.createElement('p');
+        renderUserName.innerText = chat.user.name;
+
+        const renderChatMessages = document.createElement('p');
+        renderChatMessages.innerText = `${chat.messages.length} mensagens`;
+
+        const renderChatStatus = document.createElement('p');
+        renderChatStatus.innerText = chat.status;
+
+        renderChat.appendChild(renderUserName);
+        renderChat.appendChild(renderChatMessages);
+        renderChat.appendChild(renderChatStatus);
+
+        chatList.appendChild(renderChat);
+    }
+
+}
+
+function selectChat(chatId){
+    const chatsElements = document.querySelectorAll('.chat');
+
+    for(const chatElement of chatsElements){
+        
+        chatElement.classList.remove('selected');
+
+        if(chatElement.dataset.id === chatId){
+            chatElement.classList.add('selected');
+        }
+
+        console.log('Evento Função selecionar');
+    }
+}
+
 function addMessage(id, chatId, sender, content, time){
     const chat = findChatById(chatId);
     if(!chat){
@@ -87,7 +156,7 @@ function totalSystemMessages(){
 }
 
 function userWithMostMessages(){
-    listChatsByMessages();
+    sortChatsByMessages();
     console.log(`Cliente com mais mensagens ${chats[0].user}`);
 }
 
@@ -130,3 +199,37 @@ function checkPermissions(user){
         console.log("Acesso negado!");
     }
 }
+
+const form = document.getElementById('create-chat');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const userName = document.getElementById('user-name').value.trim();
+
+    if(!userName){
+        alert('Nome não pode estar vazio.');
+        return;
+    }
+
+    const user = createUser(userName);
+    createChat(user.id);
+
+    renderChats();
+
+    form.reset();
+})
+
+const chatList = document.getElementById('chat-list');
+
+chatList.addEventListener('click', (event) => {
+    const chatClicked = event.target.closest('.chat');
+
+    if(!chatClicked){
+        console.log('Não foi possível selecionar o chat.')
+        return;
+    }
+
+    console.log('Evento clique');
+    selectChat(chatClicked.dataset.id);
+})

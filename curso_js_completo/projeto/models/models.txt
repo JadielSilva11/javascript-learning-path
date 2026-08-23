@@ -4,7 +4,7 @@ Chat = {
     id: 1,
     user: user,
     messages: [],
-    status: 'PENDENTE'
+    status: 'OPEN'
 }
 
 Messages = {

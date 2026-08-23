@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto do curso: Sistema de atendimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="create-chat">
+            <p>Novo atendimento</p>
+            <input id="user-name" type="text" placeholder="Nome do cliente">
+            <button type="submit">Criar atendimento</button>
+        </form>
+    </div>
+
+    <div id="chat-list" class="container">
+        <p>Atendimentos</p>
+    </div>
+
+    <div id="messages" class="container">
+        <p>Mensagens</p>
+    </div>
+
+    <div class="container">
+        <form id="messages-form">
+            <input id="message" type="text" placeholder="Digite uma mensagem">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
