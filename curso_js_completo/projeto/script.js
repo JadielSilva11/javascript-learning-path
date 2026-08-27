@@ -1,13 +1,15 @@
 const chats = [];
 const users = [];
-let userId = 0;
+let usersId = 0;
 let chatsId = 0;
+let messagesId = 0;
+let selectedChatId = 0;
 
 function createUser(name){
-    userId++;
+    usersId++;
 
     const user = {
-        id: userId,
+        id: usersId,
         name: name,
         type: 'CUSTOMER'
     };
@@ -65,15 +67,21 @@ function listOpenChats(){
     }
 }
 
-function endChat(chatId){
-    const chat = findChatById(chatId);
-    if(!chat){
-        console.log("Chat não encontrado!");
-        return;
+function selectChat(chatId){
+    const chatsElements = document.querySelectorAll('.chat');
+
+    for(const chatElement of chatsElements){
+        
+        chatElement.classList.remove('selected');
+
+        if(chatElement.dataset.id === chatId){
+            chatElement.classList.add('selected');
+            selectedChatId = Number(chatId);
+            renderMessages(selectedChatId);
+        }
+
+        console.log('Evento Função selecionar');
     }
-
-    chat.status = 'CLOSED';
-
 }
 
 function renderChats(){
@@ -85,6 +93,10 @@ function renderChats(){
         renderChat.classList.add('chat');
         renderChat.dataset.id = chat.id;
 
+        if(chat.status === 'CLOSED'){
+            renderChat.classList.add('finished');
+        }
+
         const renderUserName = document.createElement('p');
         renderUserName.innerText = chat.user.name;
 
@@ -92,58 +104,99 @@ function renderChats(){
         renderChatMessages.innerText = `${chat.messages.length} mensagens`;
 
         const renderChatStatus = document.createElement('p');
-        renderChatStatus.innerText = chat.status;
+        renderChatStatus.innerText = `Status: ${chat.status}`;
+
+        const chatFinishButton = document.createElement('button');
+        chatFinishButton.classList.add('finish-chat');
+        chatFinishButton.innerText = 'Concluir';
+
+        const chatDeleteButton = document.createElement('button');
+        chatDeleteButton.classList.add('delete-chat');
+        chatDeleteButton.innerText = 'Deletar';
 
         renderChat.appendChild(renderUserName);
         renderChat.appendChild(renderChatMessages);
         renderChat.appendChild(renderChatStatus);
+        renderChat.appendChild(chatFinishButton);
+        renderChat.appendChild(chatDeleteButton);
 
         chatList.appendChild(renderChat);
     }
 
 }
 
-function selectChat(chatId){
-    const chatsElements = document.querySelectorAll('.chat');
-
-    for(const chatElement of chatsElements){
-        
-        chatElement.classList.remove('selected');
-
-        if(chatElement.dataset.id === chatId){
-            chatElement.classList.add('selected');
-        }
-
-        console.log('Evento Função selecionar');
-    }
-}
-
-function addMessage(id, chatId, sender, content, time){
+function finishChat(chatId){
     const chat = findChatById(chatId);
     if(!chat){
         console.log("Chat não encontrado!");
         return;
     }
 
+    chat.status = 'CLOSED';
+}
+
+function deleteChat(chatId){
+    const chat = findChatById(chatId);
+    if(!chat){
+        console.log("Chat não encontrado!");
+        return;
+    }
+
+    const index = chats.findIndex(chat => chat.id === chatId);
+
+    if(index !== -1){
+        chats.splice(index, 1);
+    }
+
+    selectedChatId = 0;
+    document.getElementById('messages-list').innerText = '';
+}
+
+function addMessage(chatId, sender, content){
+    const chat = findChatById(chatId);
+    if(!chat){
+        console.log("Chat não encontrado!");
+        return;
+    }
+
+    if(chat.status === 'CLOSED'){
+        alert('O chat selecionado já foi finalizado.');
+        return;
+    }
+
+    messagesId++;
+
     const newMessage = {
-        id: id,
+        id: messagesId,
+        chatId: chatId,
         sender: sender,
         content: content,
-        time: time
+        time: new Date()
     };
 
     chat.messages.push(newMessage);
 }
 
-function listMessages(chatId){
+function renderMessages(chatId){
     const chat = findChatById(chatId);
     if(!chat){
         console.log("Chat não encontrado!");
         return;
     }
 
+    const renderMessages = document.getElementById('messages-list');
+    renderMessages.innerText = '';
+
     for(const message of chat.messages){
-        console.log(`${message.sender}: ${message.content}`);
+        const renderMessage = document.createElement('p');
+
+        if(message.sender === 'USER'){
+            renderMessage.innerText = `${chat.user.name}: ${message.content}`;
+        }else{
+            renderMessage.innerText = `${message.sender}: ${message.content}`;
+        }
+
+        renderMessages.appendChild(renderMessage);
     }
 }
 
@@ -224,12 +277,48 @@ const chatList = document.getElementById('chat-list');
 
 chatList.addEventListener('click', (event) => {
     const chatClicked = event.target.closest('.chat');
+  
+    if(event.target.classList.contains('finish-chat')){
+        chatClicked.classList.add('finished');
+        finishChat(Number(chatClicked.dataset.id));
+        alert('Chat finalizado.');
+    } 
+    else if(event.target.classList.contains('delete-chat')){
+        deleteChat(Number(chatClicked.dataset.id));
+        renderChats();
+        alert('Chat deletado.');
+    }
 
     if(!chatClicked){
         console.log('Não foi possível selecionar o chat.')
         return;
     }
-
     console.log('Evento clique');
     selectChat(chatClicked.dataset.id);
+})
+
+const messagesForm = document.getElementById('messages-form');
+
+messagesForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if(selectedChatId === 0){
+        alert('Selecione um chat primeiro.');
+        return;
+    }
+
+    const content = document.getElementById('message-input').value;
+    if(!content.trim()){
+        alert('Digite uma mensagem.');
+        return;
+    }
+
+    const sender = document.getElementById('sender').value;
+
+    addMessage(selectedChatId, sender, content);
+    renderMessages(selectedChatId);
+
+    document.getElementById('message-input').value = '';
+
+    messagesForm.reset();
 })

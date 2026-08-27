@@ -4,12 +4,13 @@ Chat = {
     id: 1,
     user: user,
     messages: [],
-    status: 'OPEN'
+    status: 'OPEN/CLOSED'
 }
 
 Messages = {
     id: 1,
-    sender: 'customer/attendant',
+    chatId: 1,
+    sender: 'USER/ADMIN',
     content: "Olá",
     time: '10:30' ou objeto Date 
 }

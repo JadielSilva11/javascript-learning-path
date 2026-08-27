@@ -20,12 +20,22 @@
     </div>
 
     <div id="messages" class="container">
-        <p>Mensagens</p>
+        <p id="messages-title">
+            Mensagens
+        </p>
+        <div id="messages-list">
+
+        </div>
     </div>
 
     <div class="container">
+        <select id="sender">
+            <option value="USER">Cliente</option>
+            <option value="ADMIN">Admin</option>
+        </select>
+
         <form id="messages-form">
-            <input id="message" type="text" placeholder="Digite uma mensagem">
+            <input id="message-input" type="text" placeholder="Digite uma mensagem">
             <button type="submit">Enviar</button>
         </form>
     </div>
