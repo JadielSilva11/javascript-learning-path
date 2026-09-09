@@ -1,0 +1,1 @@
+// Apenas exemplos de uso para var, let e const
