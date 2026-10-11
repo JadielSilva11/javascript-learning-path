@@ -1,6 +1,6 @@
 # JavaScript Learning Path
 
-**Este repositório foi construido durante a realização do curso de JavaScript do Curso em Vídeo**
+**Este repositório foi construido durante a realização do curso de JavaScript do Curso em Vídeo e estudo de forma autônoma a partir de documentações e vídeos-aulas**
 
 Este repositório reúne meus **estudos e práticas na linguagem JavaScript**, abordando desde os **fundamentos da linguagem** até conceitos essenciais do **desenvolvimento web** e **programação moderna**.
 
